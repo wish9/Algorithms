@@ -5,4 +5,4 @@ if values[0]<values[1]:
     else: print('A')
 else:
     if values[0]==2 or values[1]==2 : print('A')
-    else: print('A')
+    else: print('B')
