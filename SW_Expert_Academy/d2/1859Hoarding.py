@@ -1,7 +1,6 @@
 T = int(input())
 
 for t in range(1, T+1):
-    print("#%d"%t, end=" ")
     N = int(input())
     result = 0
     values = list(map(int, input().split()))
@@ -12,4 +11,4 @@ for t in range(1, T+1):
             sellPrice = i
         else:
             result += sellPrice - i
-    print(result)
+    print("#", t, " ", result, sep="")
