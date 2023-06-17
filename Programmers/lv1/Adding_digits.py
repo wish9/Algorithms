@@ -1,9 +1,15 @@
 # n = int타입
 
+# def solution(n):
+#     answer = 0
+#
+#     for i in range(len(str(n))):
+#         answer += int(str(n)[i])
+#
+#     return answer
+
 def solution(n):
-    answer = 0
+    if n < 10:
+        return n
 
-    for i in range(len(str(n))):
-        answer += int(str(n)[i])
-
-    return answer
+    return n%10 + solution(n//10)
