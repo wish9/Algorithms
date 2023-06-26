@@ -14,4 +14,8 @@ def solution(n):
 
     return False
 
+def solution2(n):
+    return n%sum(int(x) for x in str(n)) == 0
+
 print(solution(ip))
+print(solution2(ip))
