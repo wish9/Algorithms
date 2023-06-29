@@ -11,4 +11,18 @@ def solution(absolutes, signs):
         else: answer -= absolutes[i]
     return answer
 
+def solution2(absolutes, signs):
+    answer=0
+    for absolute,sign in zip(absolutes,signs):
+        if sign:
+            answer+=absolute
+        else:
+            answer-=absolute
+    return answer
+
 print(solution(ip1, ip2))
+print(solution2(ip1, ip2))
+
+# [4,7,12]
+# [true,false,true]
+# 9
