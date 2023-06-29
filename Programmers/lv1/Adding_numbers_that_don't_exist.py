@@ -6,4 +6,8 @@ def solution(numbers):
         if not numbers.__contains__(i): answer += i
     return answer
 
+def solution2(numbers):
+    return 45 - sum(numbers)
+
 print(solution(ip))
+print(solution2(ip))
