@@ -7,11 +7,11 @@ ip2 = list(map(int, input().split()))
 
 def solution(A,B):
     answer = 0
+    A.sort()
+    B.sort(reverse=True)
 
     for i in range(len(A)):
-        answer += min(A)*max(B)
-        A.remove(min(A))
-        B.remove(max(B))
+        answer += A[i]*B[i]
 
     return answer
 
