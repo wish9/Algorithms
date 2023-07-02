@@ -17,4 +17,12 @@ def solution(s):
     if len(s) ==0 and len(openCounting)!=0: return False
     return True
 
+def solution2(s):
+    pair = 0
+    for x in s:
+        if pair < 0: return False
+        pair = pair +1 if x == '(' else pair -1
+    return pair == 0
+
 print(solution(ip))
+print(solution2(ip))
