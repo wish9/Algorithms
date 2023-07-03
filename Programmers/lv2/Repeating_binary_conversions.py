@@ -8,7 +8,6 @@ def toBinary(num):
         digit += 1
 
     for i in range(digit, -1, -1):
-        print(num/(2**i))
         if num/(2**i) >= 1:
             result += '1'
             num = num%(2**i)
@@ -34,4 +33,14 @@ def solution(s):
 
     return answer
 
+def solution2(s):
+    a, b = 0, 0
+    while s != '1':
+        a += 1
+        num = s.count('1')
+        b += len(s) - num
+        s = bin(num)[2:]
+    return [a, b]
+
 print(solution(ip))
+print(solution2(ip))
