@@ -1,5 +1,8 @@
 ip = int(input())
 
+'''
+시간복잡도 = O(log n + k)
+'''
 def solution(n):
     binaryN = bin(n)[2:]
 
@@ -22,4 +25,16 @@ def solution(n):
 
     return int(answer, 2)
 
+'''
+O(log n)
+'''
+def solution2(n):
+    num1 = bin(n).count('1')
+    while True:
+        n = n + 1
+        if num1 == bin(n).count('1'):
+            break
+    return n
+
 print(solution(ip))
+print(solution2(ip))
