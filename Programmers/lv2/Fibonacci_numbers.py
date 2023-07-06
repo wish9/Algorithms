@@ -15,4 +15,11 @@ def solution(n):
         arr = [0,1,1]
         return fibo(n, arr)
 
-print(solution(ip))
+def solution2(num):
+    a, b = 0, 1
+    for i in range(num):
+        a, b = b%1234567, (a+b)%1234567
+    return a
+
+# print(solution(ip)) # 2795 이상부터는 스택 오버플로우 발생
+print(solution2(ip))
