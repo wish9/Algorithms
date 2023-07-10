@@ -2,8 +2,11 @@ def commonNumbers(n):
     answer = []
     answer.append(1)
 
-    for i in range(2,n//2+1,2):
-        if n%i==0: answer.append(i)
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            answer.append(i)
+            if n // i != i:
+                answer.append(n // i)
 
     if n != 1:
         answer.append(n)
