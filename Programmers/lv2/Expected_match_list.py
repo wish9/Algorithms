@@ -8,7 +8,7 @@ def sameMach(a,b):
     return True
 
 def solution(n, a, b):
-    answer = 0
+    answer = 1
 
     while sameMach(a,b):
 
@@ -25,5 +25,7 @@ def solution(n, a, b):
         answer += 1
 
     return answer
+
+
 
 print(solution(8,4,7))
