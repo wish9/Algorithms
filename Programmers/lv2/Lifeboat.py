@@ -35,8 +35,21 @@ def solution(people, limit):
 
     return answer
 
+def solution2(people, limit) :
+    answer = 0
+    people.sort()
 
-print(solution([70, 50, 80, 50], 100))
-print(solution([70, 80, 50], 100))
-print(solution([70, 80, 50, 60, 70, 40, 100, 40, 40, 60, 50], 100))
-print(solution([70, 80, 50, 60, 70, 40, 100, 40, 40, 60, 50, 60, 60, 59, 58, 57, 56], 100))
+    a = 0
+    b = len(people) - 1
+    while a < b :
+        if people[b] + people[a] <= limit :
+            a += 1
+            answer += 1
+        b -= 1
+    return len(people) - answer
+
+
+print(solution2([70, 50, 80, 50], 100))
+print(solution2([70, 80, 50], 100))
+print(solution2([70, 80, 50, 60, 70, 40, 100, 40, 40, 60, 50], 100))
+print(solution2([70, 80, 50, 60, 70, 40, 100, 40, 40, 60, 50, 60, 60, 59, 58, 57, 56], 100))
