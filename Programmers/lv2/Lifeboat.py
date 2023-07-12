@@ -1,28 +1,41 @@
 def solution(people, limit):
     answer = 0
+    not_used = []
 
-    while len(people)!=0:
-        arr = []
-        sum_arr = people[0]
-        arr.append(people[0])
-        del people[0]
+    people.sort()
 
-        for i in people:
-            if sum_arr < arr[-1] + i <= 100:
-                sum_arr = arr[-1] + i
-                arr.append(i)
-
-        if len(arr) >= 2:
-            people.remove(arr.pop(-1))
+    for i in range(len(people)):
+        if people[i] > limit - 40:
             answer += 1
         else:
+            not_used.append(people[i])
+
+    i = 0
+    j = len(not_used) - 1
+
+    while len(not_used) != 0:
+        if i == j:
             answer += 1
+            i = 0
+            not_used.remove(not_used[i])
+            j = len(not_used) - 1
+            continue
 
+        sum_pair = not_used[i] + not_used[j]
 
+        if sum_pair <= limit:
+            answer += 1
+            not_used.remove(not_used[i])
+            not_used.remove(not_used[j-1])
+            i = 0
+            j = len(not_used) -1
+        elif sum_pair > limit:
+            j -= 1
 
     return answer
 
 
-print(solution([70, 50, 80, 50], 100))
-print(solution([70, 80, 50], 100))
-print(solution([70, 19, 80, 50, 30, 50], 100))
+# print(solution([70, 50, 80, 50], 100))
+# print(solution([70, 80, 50], 100))
+# print(solution([70, 80, 50, 60, 70, 40, 100, 40, 40, 60, 50], 100))
+print(solution([70, 80, 50, 60, 70, 40, 100, 40, 40, 60, 50, 60, 60, 59, 58, 57, 56], 100))
