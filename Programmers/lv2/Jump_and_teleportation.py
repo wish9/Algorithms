@@ -30,6 +30,9 @@ def solution(n):
 
     return ans
 
-print(solution(5))
-print(solution(6))
-print(solution(5000))
+def solution2(n):
+    return bin(n).count('1')
+
+print(solution2(5))
+print(solution2(6))
+print(solution2(5000))
