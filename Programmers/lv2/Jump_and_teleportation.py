@@ -1,13 +1,10 @@
 '''
 입력 받은 n 보다 작지만 가장 큰 2의 x승을 구하고
-n에다 찾은 값(2의 x승)을 빼는걸 반복해서 몇번 뺀지 리턴하는 메서드
+n에다 찾은 값(2의 x승)을 뺀 값을 리턴하는 메서드
 '''
-def remove_the_square_power_of_two(n, ans):
+def remove_the_square_power_of_two(n):
     x = 0
     a = 1
-
-    if n ==0:
-        return ans
 
     while True:
         if a <= n:
@@ -17,14 +14,17 @@ def remove_the_square_power_of_two(n, ans):
             x -= 1
             break
 
-    ans += 1
-    ans = remove_the_square_power_of_two(n - 2**x, ans)
-
-    return ans
+    return n - 2**x
 
 def solution(n):
-    ans = remove_the_square_power_of_two(n, 0)
+    ans = 0
+
+    while n!=0:
+        n = remove_the_square_power_of_two(n)
+        ans += 1
     return ans
+
+
 
 print(solution(5))
 print(solution(6))
