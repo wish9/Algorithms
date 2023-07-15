@@ -15,10 +15,10 @@ def solution(n):
     return answer % 1234567
 
 def solution2(num):
-    a, b = 1, 2
-    for i in range(2,num):
-        a, b = b, a+b
-    return b
+    a, b = 0, 1
+    for i in range(0,num):
+        a, b = b, (a+b) % 1234567
+    return b % 1234567
 
 print(solution(3))
 print(solution(4))
