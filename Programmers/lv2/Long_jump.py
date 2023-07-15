@@ -14,7 +14,18 @@ def solution(n):
 
     return answer % 1234567
 
+def solution2(num):
+    a, b = 1, 2
+    for i in range(2,num):
+        a, b = b, a+b
+    return b
+
 print(solution(3))
 print(solution(4))
 print(solution(5))
 print(solution(6))
+print('-'*50)
+print(solution2(3))
+print(solution2(4))
+print(solution2(5))
+print(solution2(6))
