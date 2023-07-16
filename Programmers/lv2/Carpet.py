@@ -34,7 +34,7 @@ def solution(brown, yellow):
 약수들을 찾을 때 0.5제곱근으로 범위 제한하고 해당 약수로 다시 모수를 나눠서 구해지는 대칭 약수를 구할 필요 X
 '''
 def solution2(brown, yellow):
-    for i in range(3, int(yellow**(1/2))+1):
+    for i in range(1, int(yellow**(1/2))+1):
         if yellow % i == 0 and 2*(i + yellow//i) == brown-4:
             return [yellow//i+2, i+2]
 
