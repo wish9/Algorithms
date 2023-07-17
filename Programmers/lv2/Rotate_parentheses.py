@@ -1,3 +1,5 @@
+from collections import deque
+
 def solution(s):
     answer = 0
     openPar = ['(', '{', '[']
@@ -22,8 +24,39 @@ def solution(s):
             answer += 1
     return answer
 
+def solution2(s):
+    ans = 0
+    que = deque(s)
+
+    for i in range(len(s)):
+        check = True
+        str = ''.join(que)
+
+        while True:
+            if "()" in str:
+                str = str.replace("()", "")
+            elif "{}" in str:
+                str = str.replace("{}", "")
+            elif "[]" in str:
+                str = str.replace("[]", "")
+            elif len(str) != 0:
+                check = False
+                break
+            else:
+                break
+
+        if check: ans+=1
+        que.rotate(-1)
+    return ans
+
 print(solution("[](){}"))
 print(solution("}]()[{"))
 print(solution("[)(]"))
 print(solution("}}}"))
 print(solution("[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[{{()}}]]]]"))
+print('-'*30)
+print(solution2("[](){}"))
+print(solution2("}]()[{"))
+print(solution2("[)(]"))
+print(solution2("}}}"))
+print(solution2("[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[{{()}}]]]]"))
