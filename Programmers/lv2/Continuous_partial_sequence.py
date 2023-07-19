@@ -1,20 +1,26 @@
 def solution(elements):
-    arr = []
+    ans = 0
+    result = list(set(elements))
+    arr = [elements]
     len_of_elements = len(elements)
 
-    for i in range(1, len_of_elements+1):
+    for i in range(1, len_of_elements): # i = 수열의 길이
+        arr_to_be_added = []
+        previous_arr = arr[i-1]
+
         for j in range(len_of_elements):
-            end = j+i
-            if end > len_of_elements-1:
-                end -= len_of_elements
-                x = sum(elements[j:len_of_elements]) + sum(elements[0:end])
+            if j+i < len_of_elements:
+                end = j+i
             else:
-                x = sum(elements[j:end])
+                end = j+i-len_of_elements
+            value = previous_arr[j] + elements[end]
+            arr_to_be_added.append(value)
 
-            if not arr.__contains__(x):
-                arr.append(x)
-                arr.sort()
+            if not result.__contains__(value):
+                result.append(value)
 
-    return len(arr)
+        arr.append(arr_to_be_added)
+
+    return len(result)
 
 print(solution([7,9,1,1,4]))
