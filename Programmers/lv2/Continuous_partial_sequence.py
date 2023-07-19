@@ -24,16 +24,17 @@ def solution(elements):
     return len(result)
 
 def solution2(elements):
-    result = []
+    result = set()
     for i in range(len(elements)):
         arr = elements[i:len(elements)] + elements[0:i]
         add_value = 0
         for j in arr:
             add_value += j
-            if not result.__contains__(add_value):
-                result.append(add_value)
+            result.add(add_value)
 
     return len(result)
+
+
 
 print(solution([7,9,1,1,4]))
 print(solution2([7,9,1,1,4]))
