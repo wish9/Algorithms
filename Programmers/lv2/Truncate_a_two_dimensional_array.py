@@ -8,7 +8,7 @@ def fail(n, left, right):
                 arr.append(j)
     return arr[left:right+1]
 
-def solution(n, left, right):
+def fail2(n, left, right):
 
     arr = [[0]*n for x in range(n)]
 
@@ -21,6 +21,20 @@ def solution(n, left, right):
             j -= 1
 
     return sum(arr, [])[left:right+1]
+
+def solution(n, left, right):
+    arr = []
+
+    for i in range(left, right+1):
+        quotient = i//n + 1
+        remainder = i%n + 1
+
+        if quotient >= remainder:
+            arr.append(quotient)
+        else:
+            arr.append(remainder)
+
+    return arr
 
 print(solution(3,2,5))
 print(solution(4,7,14))
