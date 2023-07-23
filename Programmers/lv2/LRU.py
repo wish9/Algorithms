@@ -2,11 +2,12 @@ def solution(cacheSize, cities):
     answer = 0
     queue = []
 
-    for i in range(len(cities)):
-        value = cities[i].upper()
+    for i in cities:
+        value = i.lower()
 
-        if queue.__contains__(value):
+        if value in queue:
             answer += 1
+            queue.remove(value)
         else:
             answer += 5
 
