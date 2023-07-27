@@ -13,6 +13,18 @@ def solution(spell, dic):
 
     return answer
 
+def solution2(spell, dic):
+    spell = set(spell)
+    for s in dic:
+        if not spell-set(s): #차집합 연산!!
+            return 1
+    return 2
+
 print(solution(["p", "o", "s"], ["sod", "eocd", "qixm", "adio", "soo"]))
 print(solution(["z", "d", "x"], ["def", "dww", "dzx", "loveaw"]))
 print(solution(["s", "o", "m", "d"], ["moos", "dzx", "smm", "sunmmo", "som"]))
+print('-'*30)
+print(solution2(["p", "o", "s"], ["sod", "eocd", "qixm", "adio", "soo"]))
+print(solution2(["z", "d", "x"], ["def", "dww", "dzx", "loveaw"]))
+print(solution2(["s", "o", "m", "d"], ["moos", "dzx", "smm", "sunmmo", "som"]))
+print(solution2(["z", "d", "x"], ["def", "dww", "dzxs", "loveaw"]))
