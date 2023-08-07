@@ -8,6 +8,9 @@ def solution(phone_book):
         for j in range(i+1, len(phone_book)):
             if sorted_phone_book[j].startswith(phone_num):
                 answer = False
+                break
+        if not answer:
+            break
 
     return answer
 
